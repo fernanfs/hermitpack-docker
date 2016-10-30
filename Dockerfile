@@ -28,4 +28,4 @@ VOLUME /hermitpack/mc-config
 
 EXPOSE 25565
 
-CMD ["tmux", "new-session", "-s", "minecraft", "/bin/bash -l -c whoami && sleep 20" "/hermitpack/ServerStart.sh" ]
+CMD ["tmux", "new-session", "-s", "minecraft", "/bin/bash -l -c whoami && sleep 20", "/hermitpack/ServerStart.sh" ]
