@@ -15,7 +15,11 @@ RUN unzip /root/hermitpack.zip -d /hermitpack && \
     ln -s /hermitpack/mc-config/ops.json /hermitpack/ops.json && \
     ln -s /hermitpack/mc-config/whitelist.json /hermitpack/whitelist.json && \
     ln -s /hermitpack/mc-config/banned-ips.json /hermitpack/banned-ips.json && \
-    ln -s /hermitpack/mc-config/banned-players.json /hermitpack/banned-players.json
+    ln -s /hermitpack/mc-config/banned-players.json /hermitpack/banned-players.json && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends tmux && \
+    rm -rf /var/lib/apt/lists/*
+
 
 
 VOLUME /hermitpack/world
@@ -24,4 +28,4 @@ VOLUME /hermitpack/mc-config
 
 EXPOSE 25565
 
-CMD "/hermitpack/ServerStart.sh"
+CMD ["tmux", "new-session", "-s", "minecraft", "/bin/bash -l -c whoami && sleep 20" "/hermitpack/ServerStart.sh" ]
