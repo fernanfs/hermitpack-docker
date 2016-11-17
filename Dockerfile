@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk
 MAINTAINER f.fernandes@fernandes-it.de
 
-ADD https://www.feed-the-beast.com/projects/ftb-presents-hermitpack/files/2339405/download /root/hermitpack.zip
+ADD https://www.feed-the-beast.com/projects/ftb-presents-hermitpack/files/2344894/download /root/hermitpack.zip
 
 RUN unzip /root/hermitpack.zip -d /hermitpack && \
     rm /root/hermitpack.zip && \
